@@ -64,6 +64,8 @@ namespace Cooksts.Droid.BLL
 
             SwipeMenuItem selectMenuItem = allSwipeMenuItem[index];
 
+            
+
             return true;
         }
     }
