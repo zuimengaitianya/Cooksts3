@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using PullToRefresharp.SwipeMenuList;
 using Cooksts.Droid.BLL;
 //using Com.Fortysevendeg.Swipelistview;
+using Cooksts.Droid.Renderers;
+using System.Collections.Generic;
 
 namespace Cooksts.Droid
 {
@@ -19,7 +21,7 @@ namespace Cooksts.Droid
     {
 
         private static string[] ITEMS = new string[] { "Abbaye de Belloc", "Abbaye du Mont des Cats", "Abertam", "Abondance", "Ackawi", "Acorn", "Adelost", "Affidelice au Chablis", "Afuega'l Pitu", "Airag", "Airedale", "Aisy Cendre", "Allgauer Emmentaler", "Abbaye de Belloc", "Abbaye du Mont des Cats", "Abertam", "Abondance", "Ackawi", "Acorn", "Adelost", "Affidelice au Chablis", "Afuega'l Pitu", "Airag", "Airedale", "Aisy Cendre", "Allgauer Emmentaler" };
-        
+
         public static MainActivity mainActivity;
 
         protected override void OnCreate(Bundle bundle)
@@ -38,8 +40,23 @@ namespace Cooksts.Droid
             SetContentView(Resource.Layout.main);
 
             PullToRefresharp.Android.Widget.ListView lv = (PullToRefresharp.Android.Widget.ListView)FindViewById(Resource.Id.myGridView1);
-            lv.Adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleListItem1, ITEMS);
-            //lv.Adapter = new ArrayAdapter(this, 1, ITEMS);
+            //lv.Adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleListItem1, ITEMS);
+
+            List<Students> studentsList = new List<Students>();
+            for (int i = 0; i < 10; i++)
+            {
+                Students stu = new Students
+                {
+                    photo = "user.png",
+                    name = "name" + i,
+                    age = 10 + i,
+                    //sex = item.sex,
+                };
+                studentsList.Add(stu);
+            }
+            lv.Adapter = new MyAdapter(studentsList, Android.App.Application.Context);
+
+
             lv.RefreshActivated += (e, s) =>
             {
                 Task.Delay(1000).ContinueWith((t) =>
@@ -54,11 +71,6 @@ namespace Cooksts.Droid
             lv.SetMenuCreator(new LvSwipeMenuCreator());
 
             lv.SetOnMenuItemClickListener(new LvMenuItemClickListener());
-
-            //SwipeMenuView smview = new SwipeMenuView(menu, lv);
-
-            //ISwipeMenuCreator
-            //lv.SetMenuCreator();
 
             LvSwipeListener swipeListener = new LvSwipeListener();
 
@@ -79,6 +91,7 @@ namespace Cooksts.Droid
             #endregion
 
             //LoadApplication(new App());
+
         }
 
         //protected override void OnListItemClick(ListView l, View v, int position, long id)

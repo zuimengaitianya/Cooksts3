@@ -21,5 +21,13 @@
       android:layout_height="wrap_content"
         android:id="@+id/myGridView1" />
   </PullToRefresharp.Android.Views.ViewWrapper>
-  
+
+  <!--<Cooksts.Droid.SWipeMenuList.SwipeListView
+    android:id="@+id/mySwipeListView"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    />-->
+
+
+
 </RelativeLayout>

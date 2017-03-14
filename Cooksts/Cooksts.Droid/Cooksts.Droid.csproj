@@ -105,6 +105,17 @@
     <Compile Include="Renderers\MyListView.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SWipeMenuList\DefaultOnGestureListener.cs" />
+    <Compile Include="SWipeMenuList\IOnMenuItemClickListener.cs" />
+    <Compile Include="SWipeMenuList\IOnSwipeItemClickListener.cs" />
+    <Compile Include="SWipeMenuList\IOnSwipeListener.cs" />
+    <Compile Include="SWipeMenuList\ISwipeMenuCreator.cs" />
+    <Compile Include="SWipeMenuList\SwipeListView.cs" />
+    <Compile Include="SWipeMenuList\SwipeMenu.cs" />
+    <Compile Include="SWipeMenuList\SwipeMenuAdapter.cs" />
+    <Compile Include="SWipeMenuList\SwipeMenuItem.cs" />
+    <Compile Include="SWipeMenuList\SwipeMenuLayout.cs" />
+    <Compile Include="SWipeMenuList\SwipeMenuView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -142,6 +153,15 @@
     <AndroidResource Include="Resources\layout\main.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\mySwipeListView.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\dog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\layout_student_item.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.2.0.45\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.2.0.45\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
